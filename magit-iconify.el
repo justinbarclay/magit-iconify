@@ -33,12 +33,17 @@
       (insert (format "%s " (nerd-icons-icon-for-dir file)))
     (insert (format "%s " (nerd-icons-icon-for-file file)))))
 
+;; magit-diff-insert-file-section
+;; magit-diff-wash-diffstat
+;; magit-diff-insert-file-section
 (defun magit-iconify--diff-file-heading ()
   (progn
     (forward-word)
     (forward-whitespace 1)
-    (insert (format "%s " (nerd-icons-icon-for-file
-                           (thing-at-point 'filename t))))
+    (insert (propertize
+             (format "%s " (nerd-icons-icon-for-file
+                            (thing-at-point 'filename t)))
+             'font-lock-faces 'magit-diff-file-heading))
     (when (re-search-forward "->\\\s+" (pos-eol) t)
       (magit-iconify--insert-icon (thing-at-point 'filename t)))))
 
