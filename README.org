@@ -1,0 +1,39 @@
+* Magit Iconify
+Make your Magit buffers look iconic 💅
+
+#+begin_quote
+[!WARNING]
+This is an incredibly brittle implementation as it overrides specific Magit functions with defadvice. If those functions change implementation things `magit-iconify` is likely to break.
+
+PRs welcome if you notice this before me 🥲
+#+end_quote
+
+** Preview
+*** Status Buffer
+[[./images/status-buffer.png]]
+*** Diff Stat buffer
+[[./images/diffstat-buffer.png]]
+
+** Installation
+#+begin_src elisp
+  (use-package magit-iconify
+    :straight (:type git :host github :repo "justinbarclay/magit-iconify")
+    :hook (magit-mode . magit-iconify-mode))
+#+end_src
+** Features
+- Supports both all-the-icons and nerd-icons
+- Only external dependency is [[https://github.com/magit/magit][magit]]
+- Brittle as heck.
+- Customizable icon function
+
+** Customization
+You can customize the icon generation function using =magit-iconify-fn=. =magit-iconify-fn= should handle a single string representing a file or directory and return a string in return.
+
+*warning* this means that we can't support vscode-icons because it returns a reference to an image.
+#+begin_src elisp
+  (setopt magit-iconify-fn (lambda (file) (nerd-icons-icon-for-file file)))
+#+end_src
+
+** Other implementation
++ https://github.com/gekoke/magit-file-icons
+  - I used this project as a source of inspiration.
