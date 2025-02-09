@@ -4,6 +4,7 @@
 
 ;; Author: Justin Barclay <github@justincbarclay.ca>
 ;; Package-Requires: ((emacs "29.1") (magit))
+;; Package-Version: 0.5.0
 ;; Keywords:
 
 ;; This program is free software; you can redistribute it and/or modify
