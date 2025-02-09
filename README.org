@@ -2,10 +2,10 @@
 Make your Magit buffers look iconic 💅
 
 #+begin_quote
-[!WARNING]
-This is an incredibly brittle implementation as it overrides specific Magit functions with defadvice. If those functions change implementation things `magit-iconify` is likely to break.
+[!NOTE]
+This library is no longer needed, iconification is now built into Magit as of https://github.com/magit/magit/commit/223461b52c35b0f426c053f4c6e7e7637c4a9b73
 
-PRs welcome if you notice this before me 🥲
+The only difference for =magit-iconify= is that I handle directories as well as files.
 #+end_quote
 
 ** Preview
